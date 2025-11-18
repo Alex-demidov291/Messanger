@@ -251,7 +251,7 @@ class ChatWindow(QWidget):
             messages = response.get('messages', [])
             for msg in messages:
                 if msg['sender_login'] == self.main_window.current_user:
-                    sender = "Вы"
+                    sender = "вы"
                 else:
                     sender = self.current_contact.get_display_name()
 
