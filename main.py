@@ -9,22 +9,6 @@ from settings_window import SettingsWindow
 import sys
 import traceback
 
-# Save the original excepthook
-sys._excepthook = sys.excepthook
-
-# Define the new exception hook
-def exception_hook(exctype, value, tb):
-    # Format the traceback and print it to stdout
-    traceback_string = ''.join(traceback.format_exception(exctype, value, tb))
-    print(traceback_string, file=sys.stdout)
-    # Call the original excepthook for default handling
-    sys._excepthook(exctype, value, tb)
-    # Optional: exit the application if needed
-    # sys.exit(1)
-
-# Override the system excepthook
-sys.excepthook = exception_hook
-
 
 class MainWindow(QMainWindow):
     def __init__(self):
